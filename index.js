@@ -9,7 +9,7 @@ app.use(cors());
 app.use(express.json());
 
 app.get("/", (req, res) => {
-  res.send("✅ Gemini backend is running!");
+  res.send("Gemini backend is running!");
 });
 
 app.post("/api/ask", async (req, res) => {
