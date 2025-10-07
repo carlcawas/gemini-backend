@@ -17,7 +17,7 @@ app.post("/api/ask", async (req, res) => {
     const { prompt } = req.body;
 
     const response = await axios.post(
-      "https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent",
+      "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent",
       {
         contents: [{ parts: [{ text: prompt }] }],
       },
