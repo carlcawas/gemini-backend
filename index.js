@@ -31,8 +31,11 @@ app.post("/api/ask", async (req, res) => {
 
     res.json(response.data);
   } catch (err) {
-    console.error("Gemini API Error:", err.response?.data || err.message);
-    res.status(500).json({ error: "Something went wrong with Gemini API" });
+    console.error("🔴 Gemini API Error Details:", err.response?.data || err.message);
+    res.status(500).json({
+      error: "Gemini API failed",
+      details: err.response?.data || err.message,
+    });
   }
 });
 
