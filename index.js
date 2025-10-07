@@ -1,9 +1,10 @@
 import express from "express";
 import axios from "axios";
-import dotenv from "dotenv";
 import cors from "cors";
+import dotenv from "dotenv";
 
 dotenv.config();
+
 const app = express();
 app.use(cors());
 app.use(express.json());
@@ -36,5 +37,4 @@ app.post("/api/ask", async (req, res) => {
   }
 });
 
-// ✅ Export app for Vercel instead of app.listen()
-export default app;
+export default app; // ✅ REQUIRED for Vercel
