@@ -17,6 +17,10 @@ app.post("/api/ask", async (req, res) => {
   try {
     const { prompt } = req.body;
 
+    if (!prompt) {
+      return res.status(400).json({ error: "Missing prompt" });
+    }
+
     const response = await axios.post(
       "https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent",
       {
@@ -37,4 +41,5 @@ app.post("/api/ask", async (req, res) => {
   }
 });
 
-export default app; // ✅ REQUIRED for Vercel
+// ⚠️ DO NOT use app.listen() in Vercel
+export default app; // ✅ Important line for Vercel
